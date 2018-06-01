@@ -1,0 +1,60 @@
+.clear{
+    padding: 0;
+    margin: 0;
+    float: none;
+}
+
+/*
+CSS for forum-question page
+*/
+.questions-header{
+    margin-bottom: 20px;
+}
+
+/*
+CSS for forum-ask page
+*/
+.question-box{
+    border-radius: 15px;
+    width: 1000px;
+    margin-left: -217px;
+}
+
+/*
+CSS for forum-question page
+*/
+.question-container {
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.row.question-container-heading {
+    color: #ffe;
+    font-size: 20px;
+    overflow-x: hidden;
+    border-bottom: 1px solid;
+}
+.row.question-container-description {
+    color: darkturquoise;
+    font-size: 17px;
+    padding: 10px;
+}
+.answer-container {
+    border: 0.5px solid #ffc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.row.answer-container-heading {
+    color: burlywood;
+    font-size: 17px;
+}
+.row.answer-container-description {
+    color: bisque;
+    font-size: 17px;
+    padding: 10px;
+}

@@ -1,0 +1,231 @@
+<html>
+
+<head>
+    <title>
+        Community App
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/sidebar.css"/>
+    <!-- CSS reference: from Rem Tsoy's "Weather Widget freebie HTML/CSS". Available at https://dribbble.com/shots/1663525-Weather-Widget-freebie-HTML-CSS-->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/climacon-font/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/climacon.css">
+    <link href="css/c3.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="js/c3.min.js"></script>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5l2r2om9T08vnxZ48wEPmMTlhqELa1qk"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/request-handler.js"></script>
+</head>
+
+<body>
+<div id="wrapper" class="toggled">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a id="home" name="home">TRAVEL MATE</a>
+            </li>
+            <li>
+                <a href="#" name="st andrews">St. Andrews</a>
+            </li>
+            <li>
+                <a href="#" name="cupar">Cupar</a>
+            </li>
+            <li>
+                <a href="#" name="dundee">Dundee</a>
+            </li>
+            <li>
+                <a href="#" name="newport-on-tay">Newport-On-Tay</a>
+            </li>
+            <li>
+                <a href="#" name="glenrothes">Glenrothes</a>
+            </li>
+            <li>
+                <a href="#" name="dunfermline">Dunfermline</a>
+            </li>
+            <li>
+                <a href="#" name="kirkcaldy">Kirkcaldy</a>
+            </li>
+            <li>
+                <a href="/forum" name="forum">Forum</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+
+
+    <div id="page-content-wrapper-blur"></div>
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="home-content">
+                <h1>Introduction</h1>
+                <p>
+Welcome to Travel Mate! Your first-stop guide to finding out the key information regarding the Kingdom of Fife!
+                </p>
+                <h4>How to use this website</h4>
+                <p>
+                    Use the navigation along the left hand side to navigate different towns or cities.
+                    Each page will provide tools such as a 5-day, and 24 hour weather forecast, as well as a map with traffic conjestion
+                    and routes for inter-town travel.
+                </p><br><br>
+                <h5>What's in the news?</h5>
+
+            </div>
+
+  <!-- Html reference: from Rem Tsoy's "Weather Widget freebie HTML/CSS". Available at https://dribbble.com/shots/1663525-Weather-Widget-freebie-HTML-CSS-->
+            <div class="main-wrapper">
+                <!-- Forecast -->
+                <div class="widget-block">
+                    <div class="img-area">
+                        <div class="img-area-mask"></div>
+                        <div id="img-place"></div>
+                        <div class="img-area-front">
+                            <h5 class="location" id="city_name"></h5>
+                            <p class="today" id="today"></p>
+                            <div class="weather-desc">
+                                <span id="description"></span>
+                            </div>
+                            <ul class="weather-block-info">
+                                <li>
+                                    <p class="temperature" id="temp"></p>
+                                </li>
+                                <li>
+                                    <ul class="weather-params">
+                                        <li><i class="climacon thermometer medium-high"></i> <span
+                                                    id="pressure"></span></li>
+                                        <li><i class="climacon moon full"></i><span
+                                                    id="humidity">Humidity</span></li>
+                                        <li><i class="climacon wind"></i> <span id="wind_speed">NW</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /MAIN AREA -->
+                    <!-- WEATHER FORECAST -->
+                    <ul class="week-forecast">
+                        <li class="sun">
+                            <div class="inner">
+                                <h5 class="week-day" id="day1"></h5>
+                                <i class="climacon" id='icon1'></i>
+                                <p class='temp' id="temp1"></p>
+                            </div>
+                        </li>
+                        <li class="rain">
+                            <div class="inner">
+                                <h5 class="week-day" id="day2"></h5>
+                                <i class="climacon" id='icon2'></i>
+                                <p class='temp' id="temp2"></p>
+                            </div>
+                        </li>
+                        <li class="cloud">
+                            <div class="inner">
+                                <h5 class="week-day" id="day3"></h5>
+                                <i class="climacon" id='icon3'></i>
+                                <p class='temp' id="temp3"></p>
+                            </div>
+                        </li>
+                        <li class="sun">
+                            <div class="inner">
+                                <h5 class="week-day" id="day4"></h5>
+                                <i class="climacon" id='icon4'></i>
+                                <p class='temp' id="temp4"></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Weather Visualization -->
+                <div class="weatherVis">
+                    <svg id="chart" height="100%" width="100%" top="300px"></svg>
+                </div>
+            </div>
+            <!-- Map -->
+            <div id="mapSlide">HI
+                <div class="menu">
+                <div id="floating-panel">
+                    <b>START: </b>
+                    <select class="select" id="start" style="width:125px;">
+                        <option value="select">Select</option>
+                        <option value="cupar">Cupar</option>
+                        <option value="dundee">Dundee</option>
+                        <option value="newport-on-tay">Newport-On-Tay</option>
+                        <option value="glenrothes, uk">Glenrothes</option>
+                        <option value="dunfermline">Dunfermline</option>
+                        <option value="Kirkcaldy">Kirkcaldy</option>
+                        <option value="st Andrews">St Andrews</option>
+                    </select>
+                    <b>END: </b>
+                    <select class="select" id="end" style="width:125px;">
+                        <option value="st andrews">St Andrews</option>
+                        <option value="cupar">Cupar</option>
+                        <option value="dundee">Dundee</option>
+                        <option value="newport-on-tay">Newport-On-Tay</option>
+                        <option value="glenrothes">Glenrothes</option>
+                        <option value="dunfermline">Dunfermline</option>
+                        <option value="Kirkcaldy">Kirkcaldy</option>
+                    </select>
+                    <b>TRAVEL-MODE:</b>
+                    <select class="select" id="travel-mode" style="width:125px;">
+                        <option value="DRIVING">Driving</option>
+                        <option value="TRANSIT">Public Transport</option>
+                        <option value="WALKING">Walking</option>
+                        <option value="BICYCLING">Cycling</option>
+                    </select>
+                </div>
+                <div id="right-panel"></div>
+                </div>
+
+                <div id="map"></div>
+            </div>
+
+            <!--News -->
+
+            <div id="newsSlide">
+                <div class="content-title-wrapper">
+
+                      <div id="title-wrapper1"></div>
+                      <div id="content-wrapper1"></div>
+
+                </div>
+                <div id="picture-wrapper1"></div><br><br>
+
+                <div id="title-wrapper2"></div>
+                <div id="content-wrapper2"></div>
+                <div id="picture-wrapper2"></div><br><br>
+
+                <div id="title-wrapper3"></div>
+                <div id="content-wrapper3"></div>
+                <div id="picture-wrapper3"></div>
+
+            </div>
+
+
+            <div class="city-content" style="display: none;">
+                <div class="temperature_detail">
+                    Minimum Temperature: <span id="temp_min"></span><br/>
+                    Maximum Temperature: <span id="temp_max"></span><br/>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+</body>
+
+</html>

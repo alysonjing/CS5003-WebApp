@@ -1,0 +1,27 @@
+{
+  "name": "communityapp",
+  "version": "1.0.0",
+  "description": "some infomation about weather and other stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "group 6",
+  "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "cradle": "^0.7.1",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "jsdoc": "^3.5.5",
+    "mocha": "^5.1.1",
+    "moment": "^2.22.1",
+    "nodemon": "^1.17.3",
+    "request": "^2.85.0",
+    "supertest": "^3.0.0"
+  }
+}

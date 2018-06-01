@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>Community App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/forum/style.css" />
+    <!-- <link rel="stylesheet" href="../../public/css/forum/style.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="../js/forum/forum.js"></script>
+</head>
+<!-- REFERENCE - https://www.codeply.com/go/nhbdi2FkJm/bootstrap-4-login-form -->
+<body class="bg-dark">
+    <div class="container py-5">
+        <div class="questions-header">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2 style="color: #FFF;">Forum</h2>
+                </div>
+                <div class="col-sm-5"></div>
+                <div class="col-sm-1">
+                    <a href="/" class="btn btn-success bt-lg">App</a>
+                </div>
+                <div class="col-sm-1">
+                    <a href="/forum/logout" class="btn btn-success bt-lg">Logout</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-3">
+                    <form action="/forum/forum-home-filter" method="POST">
+                        <input type="hidden" id="city-name" value='<%= selected%>' />
+                        <select name="category" id="category">
+                            <option value="all">All</option>
+                            <option value="St Andrews">St. Andrews</option>
+                            <option value="Cupar">Cupar</option>
+                            <option value="Dundee">Dundee</option>
+                            <option value="Newport">Newport-On-Tay</option>
+                            <option value="Glenrothes">Glenrothes</option>
+                            <option value="Dunfermline">Dunfermline</option>
+                            <option value="Kirkcaldy">Kirkcaldy</option>
+                        </select>
+                        <button type="submit" class="btn btn-success bt-lg">Filter</button>
+                    </form>
+                </div>
+                <div class="col-sm-1">
+                    <a href="/forum/forum-ask" id="ask-link" class="btn btn-success bt-lg">Ask Question</a>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+        <div class="list-group">
+            <% data.forEach(function(doc) { %>
+                <a href='/forum/forum-question/<%- doc.id%>' class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">
+                            <%= doc.question%>
+                        </h5>
+                        <small>
+                            <%= doc.category%>
+                            <%= moment(doc.time).format('Do MMMM, YYYY');%>
+                        </small>
+                    </div>
+                    <p class="mb-1">
+                        <%= doc.description %>
+                    </p>
+                    <!-- <small>Donec id elit non mi porta.</small> -->
+                </a>
+                <% }); %>
+
+        </div>
+    </div>
+</body>
+
+</html>

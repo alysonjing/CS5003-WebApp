@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Community App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="../../public/css/forum/style.css" /> -->
+    <link rel="stylesheet" href="../../css/forum/style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/forum/login.js"></script>
+</head>
+<!-- REFERENCE - https://www.codeply.com/go/nhbdi2FkJm/bootstrap-4-login-form -->
+<body class="bg-dark">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center text-white mb-4">Question</h2>
+                <div class=" question-container">
+                    <div class="row question-container-heading">
+                        <div class="col-sm-12">
+                            <p>
+                                <%= data.question%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row question-container-description">
+                        <div class="col-sm-12">
+                            <p>
+                                <%= data.description%>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="/forum/saveanswer" method="POST">
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="hidden" value='<%= data._id%>' name="id" />
+                    <textarea name="answer" placeholder="Type your Answer here..." rows="12" style="width: 100%;background-color:
+                         #2e3e42;border: 2px solid #fff;border-radius: 5px;color: aliceblue;padding: 15px;margin-bottom: 20px;"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10"></div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-secondary bt-lg" style="width: 160px;">Give Answer</button>
+                </div>
+            </div>
+        </form>
+        <!--/row-->
+    </div>
+    <!--/container-->
+</body>
+
+</html>

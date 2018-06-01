@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Community App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="../../public/css/forum/style.css" /> -->
+    <link rel="stylesheet" href="../css/forum/style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/forum/login.js"></script>
+</head>
+
+<body class="bg-dark">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center text-white mb-4">Ask Question</h2>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <!-- form card login REFERENCE - https://www.codeply.com/go/nhbdi2FkJm/bootstrap-4-login-form-->
+                        <div class="card question-box">
+                            <div class="card-header">
+                                <h3 class="mb-0">Question</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="/forum/savequestion" class="form" role="form" autocomplete="off" id="formQuestion" method="POST">
+                                    <div class="form-group">
+                                        <label for="question">Question Heading</label>
+                                        <input type="text" class="form-control form-control-lg rounded-0" name="heading" id="heading" required="">
+                                        <span style="color:#F00" id="sheading"></span>
+                                    </div>
+									<div class="form-group">
+                                        <label for="question">Question Category</label>
+                                        <select name="category" class="form-control form-control-lg rounded-0">
+											<option value="St Andrews">St. Andrews</option>
+											<option value="Cupar">Cupar</option>
+											<option value="Dundee">Dundee</option>
+											<option value="Newport">Newport-On-Tay</option>
+											<option value="Glenrothes">Glenrothes</option>
+											<option value="Dunfermline">Dunfermline</option>
+											<option value="Kirkcaldy">Kirkcaldy</option>
+										</select>
+                                        <span style="color:#F00" id="sheading"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea name="description" class="form-control form-control-lg rounded-0" id="desciption" rows="7"></textarea>
+                                        <span style="color:#F00" id="sdescription"></span>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-lg" id="btnAskQuestion">Ask</button>
+
+                                </form>
+                            </div>
+                            <!--/card-block-->
+                        </div>
+                        <!-- /form card login -->
+                    </div>
+                </div>
+                <!--/row-->
+            </div>
+            <!--/col-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+</body>
+</html>
